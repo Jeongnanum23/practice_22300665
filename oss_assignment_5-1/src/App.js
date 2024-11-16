@@ -67,44 +67,9 @@ function App() {
   return (
     <div className="App">
       <h1>Friend List</h1>
-      
-      <button onClick={() => openModal('add')}>데이터 추가</button>
 
-      
-      <div className="form-group">
-        <label>ID:</label>
-        <input 
-          type="text" 
-          value={inputId} 
-          onChange={(e) => setInputId(e.target.value)} 
-        />
-      </div>
 
-      {/* 수정 버튼 */}
-      <button onClick={() => {
-        const friendToUpdate = friends.find(friend => friend.id === inputId);
-        if (friendToUpdate) {
-          openModal('update');
-        } else {
-          alert('해당 ID의 친구를 찾을 수 없습니다.');
-        }
-      }}>
-        데이터 수정
-      </button>
-
-    
-      <button onClick={() => {
-        if (inputId) {
-          deleteFriend();
-          alert("친구 정보가 삭제되었습니다.");
-        } else {
-          alert("ID를 입력해주세요.");
-        }
-      }}>
-        데이터 삭제
-      </button>
-
-      <button onClick={showList}>
+      <button className='click_btn' onClick={showList}>
         리스트 보기
       </button>
 
@@ -117,6 +82,43 @@ function App() {
           initialData={{}}  
         />
       </Modal>
+
+      <div className="form-group">
+        <label>ID:</label>
+        <input 
+          type="text" 
+          value={inputId} 
+          onChange={(e) => setInputId(e.target.value)} 
+        />
+      </div>
+      
+      <button className='click_btn' onClick={() => openModal('add')}>데이터 추가</button>
+
+
+    
+      <button className='click_btn' onClick={() => {
+        const friendToUpdate = friends.find(friend => friend.id === inputId);
+        if (friendToUpdate) {
+          openModal('update');
+        } else {
+          alert('해당 ID의 친구를 찾을 수 없습니다.');
+        }
+      }}>
+        데이터 수정
+      </button>
+
+    
+      <button className='click_btn' onClick={() => {
+        if (inputId) {
+          deleteFriend();
+          alert("친구 정보가 삭제되었습니다.");
+        } else {
+          alert("ID를 입력해주세요.");
+        }
+      }}>
+        데이터 삭제
+      </button>
+
     </div>
   );
 }

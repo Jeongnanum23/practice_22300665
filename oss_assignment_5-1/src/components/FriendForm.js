@@ -45,7 +45,7 @@ function FriendForm({ onSubmit, initialData = {} }) {
           onChange={(e) => setRc(e.target.value)} 
         />
       </div>
-      <button type="submit">저장</button>
+      <button type="submit" className='save'>저장</button>
     </form>
   );
 }
